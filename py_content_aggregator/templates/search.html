@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Content Aggregator</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+  </head>
+  <body>
+
+      <div class="s130">
+      <div class="inner-form" style="width: 80%">
+        <a href="/"><h3 style="color: white; text-align: center;">Search</h3></a>
+        <ul>
+          {% for search in searches %}
+          <li class="search-result">
+            <div class="search-result-heading">
+              <a href="{{ search.url }}"><span>{{search.title}}</span></a>
+            </div>
+            <div class="search-result-text">
+                {{search.description}}
+            </div>
+            <div class="search-result-data">
+                {{search.date}}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+  </body>
+</html>
